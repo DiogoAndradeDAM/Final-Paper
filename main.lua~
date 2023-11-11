@@ -1,0 +1,22 @@
+Vector2 = require("Engine/Tools/Vector2")
+
+function love.load()
+	position = Vector2.new(100,100)	
+end
+
+function love.update(dt)
+	if love.keyboard.isDown("d") then
+		position = position + Vector2.new(10, 0)
+	end
+	if love.keyboard.isDown("a") then
+		position = position + Vector2.new(-10, 0)
+	end
+end
+
+function love.draw()
+	love.graphics.setColor({1,0,0,1})
+	love.graphics.rectangle("fill", position.x, position.y, 50,50)
+	if(position == Vector2.new(200,200)) then 
+		love.graphics.print("Hello World", 100, 100)
+	end
+end
