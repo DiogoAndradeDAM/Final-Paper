@@ -8,6 +8,14 @@ function Vector2.new(x, y)
 	return o
 end
 
+function Vector2.zero()
+	return Vector2.new(0,0)
+end
+
+function Vector2.one()
+	return Vector2.new(1,1)
+end
+
 function Vector2:__add(other)
 	return Vector2.new(self.x+other.x, self.y+other.y)
 end
@@ -26,6 +34,14 @@ end
 
 function Vector2:__eq(other)
 	return (self.x == other.x) and (self.y == other.y)
+end
+
+function Vector2:__lt(other)
+	return (self.x < other.x) and (self.y < other.y)
+end
+
+function Vector2:__le(other)
+	return (self.x <= other.x) and (self.y <= other.y)
 end
 
 function Vector2:__tostring()

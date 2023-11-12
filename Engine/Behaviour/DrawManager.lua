@@ -1,19 +1,21 @@
 DrawManager = {}
 DrawManager.__index = DrawManager
 
-function DrawManager.new(params)
+NUM_OF_LAYERS=7
+--{layers = {"Bg1", "Bg2", "Bg3", "Tiles", "Instances", "Hud", "Gui"}}
+
+function DrawManager.new()
     local o = setmetatable({}, DrawManager)
     o.layers = {}
-    for i = 1,#params.layers do
-        o.layers[params.layers[i]] = {}
+    for i = 1,NUM_OF_LAYERS do
+        o.layers[i] = {}
     end
     return o
 end
-
 function DrawManager:draw()
-    for k,v in pairs(self.layers) do
-        for i = 1,#v do
-            obj = v[i]
+    for layer = 1,#self.layers do
+        for item = 1,#self.layers[layer] do
+            obj = self.layers[layer][item]
             if obj ~= nil then
                 obj:draw()
             end

@@ -1,28 +1,31 @@
 DrawManager         = require("Engine/Behaviour/DrawManager")
-Player        = require("Source/Player/Player")
+UpdateManager         = require("Engine/Behaviour/UpdateManager")
+Player              = require("Source/Player/Player")
+Vector2             = require("Engine/Tools/Vector2")
+Rectangle             = require("Engine/Tools/Rectangle")
 
-teste = DrawManager.new({layers = {"Bg1", "Bg2", "Bg3", "Tiles", "Instances", "Hud", "Gui"}})
-player = Player.new({x=500,y=200, width=50,height=50, speed=10, color={1,0,0,1}})
-player2 = Player.new({x=300,y=200, width=50,height=50, speed=10, color={0,1,0,1}})
-player3 = Player.new({x=320,y=200, width=50,height=50, speed=10, color={0,0,1,1}})
-player4 = Player.new({x=330,y=200, width=50,height=50, speed=10, color={0,1,1,1}})
-teste:addFirst({layer="Bg2", value=player3})
-teste:addFirst({layer="Bg1", value=player4})
-teste:addFirst({layer="Instances", value=player})
-teste:addFirst({layer="Gui", value=player2})
+teste = DrawManager.new()
+teste2 = UpdateManager.new()
+player = Player.new({pos=Vector2.new(500, 200), width=50,height=50, speed=200, color={1,0,0,1}})
+
+
+teste:addFirst({layer=4, value=player})
+teste2:addFirst({value=player})
 
 
 function love.load()
+
 end
 
 function love.update(dt)
-    if love.keyboard.isDown("d") then
-        player.x = player.x + player.speed
-    elseif love.keyboard.isDown("a") then
-        player.x = player.x - player.speed
-    end
-    --print(teste.layers["Instances"][1].x)
+    teste2:update(dt)
 
+end
+
+function love.keypressed(key)
+    if key == "space" then
+        player.pos.y = player.pos.y - 200
+    end
 end
 
 function love.draw()
