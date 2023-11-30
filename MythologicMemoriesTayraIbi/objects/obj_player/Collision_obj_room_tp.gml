@@ -1,0 +1,1 @@
+room_goto(other.room_to_go)
