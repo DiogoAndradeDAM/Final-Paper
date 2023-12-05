@@ -1,5 +1,5 @@
 draw_sprite(spr_backpack_icon,0, global.view_width-sprite_get_width(spr_backpack_icon)-16, 32)
-draw_set_font(font_alphabeta)
+draw_set_font(font_pixantiqua)
 draw_text(global.view_width-sprite_get_width(spr_backpack_icon)-16,32, string("E"))
 if(instance_exists(obj_inventory) or instance_exists(obj_books) or instance_exists(obj_items) or instance_exists(obj_options)){
 	draw_text(global.view_width-sprite_get_width(spr_backpack_icon)-16,64, string("ESC"))
