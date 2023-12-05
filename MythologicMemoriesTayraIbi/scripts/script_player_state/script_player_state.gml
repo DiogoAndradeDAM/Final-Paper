@@ -1,8 +1,31 @@
+function PlayerStateStop() constructor
+{
+	name="Stop"
+	initialize = function()
+	{
+		obj_player.image_speed=0
+		obj_player.hspd=0
+		obj_player.vspd=0
+		obj_player.dirx=0
+	}
+	
+	handle_input = function()
+	{
+		
+	}
+	
+	update = function()
+	{
+		
+	}
+}
+
 function PlayerStateIdle() constructor
 {
 	name="Idle"
 	initialize = function()
 	{
+		obj_player.image_speed = 1
 		obj_player.sprite_index = spr_ayira_idle;
 		obj_player.image_xscale = obj_player.directionh;
 	}
@@ -92,9 +115,14 @@ function PlayerStateAttack() constructor
 		}
 		
 		if(obj_player.image_index == 3){
-			var _hit = instance_create_layer(obj_player.x+16,obj_player.y-32, "Collisions", obj_player_hitbox);
+			var _hit = instance_create_layer(
+				obj_player.x+(16*obj_player.directionh),
+				obj_player.y-32, 
+				"Collisions", 
+				obj_player_hitbox);
 			_hit.damage = 1;
 			_hit.alarm[0] = 2;
+			_hit.image_xscale = obj_player.directionh
 		}
 	}
 }

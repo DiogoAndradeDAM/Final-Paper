@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Globals",
-    "path": "folders/Objects/Globals.yy",
+    "name": "Macros",
+    "path": "folders/Objects/Macros.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -30,5 +30,5 @@
     "path": "sprites/spr_wall/spr_wall.yy",
   },
   "spriteMaskId": null,
-  "visible": true,
+  "visible": false,
 }

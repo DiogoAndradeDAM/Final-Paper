@@ -21,5 +21,10 @@ state_idle = new PlayerStateIdle()
 state_moving = new PlayerStateMoviment()
 state_attacking = new PlayerStateAttack()
 state_hurt = new PlayerStateHurt()
+state_stopped = new PlayerStateStop()
 state=state_idle
 
+//Inventory
+items=array_create(22)
+items[@ 0] = "Machado de Pedra"
+items[@ 1] = "Jaborandi"
